@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>복쓰쌤의 보석대화</title>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- React 18 UMD -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Babel (브라우저에서 JSX 변환) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-gradient-to-b from-pink-100 via-white to-indigo-100 min-h-screen">
+  <div id="root"></div>
+
+  <!-- 반드시 프리셋 지정 -->
+  <script type="text/babel" data-presets="env,react">
+    const { useEffect, useMemo, useState } = React;
+
+    /* ================= 유틸 ================ */
+    const PALETTE = [
+      "bg-rose-100 text-rose-600",
+      "bg-amber-100 text-amber-700",
+      "bg-emerald-100 text-emerald-700",
+      "bg-sky-100 text-sky-700",
+      "bg-violet-100 text-violet-700",
+      "bg-fuchsia-100 text-fuchsia-700",
+      "bg-teal-100 text-teal-700",
+      "bg-orange-100 text-orange-700",
+    ];
+    const colorFor = (i) => PALETTE[i % PALETTE.length];
+    const formatDate = (d) => `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
+    const SECURE = typeof window !== "undefined" && window.isSecureContext && !!(window.crypto && window.crypto.subtle);
+
+    /* ============== 52개 미덕 + 이모지 ============== */
+    const VIRTUES = [
+      // 1열
+      { key: "감사", name: "감사", easy: "받은 도움에 고마움을 표현해요", emoji: "🙏" },
+      { key: "결의", name: "결의", easy: "마음먹은 일을 끝까지 하려는 다짐이에요", emoji: "🧗" },
+      { key: "겸손", name: "겸손", easy: "잘해도 자랑하지 않고 배워요", emoji: "🙇" },
+      { key: "관용", name: "관용", easy: "다른 사람의 실수를 이해하고 용서해요", emoji: "🤝" },
+      { key: "근면", name: "근면", easy: "부지런히 할 일을 해요", emoji: "🛠️" },
+      { key: "기백함", name: "기백함", easy: "씩씩하고 당당한 태도예요", emoji: "🦁" },
+      { key: "기지", nam
